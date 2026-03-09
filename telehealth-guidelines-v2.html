@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ריפוי בעיסוק בקהילה – טיפול מרחוק | מדריך למרפאות בעיסוק</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F3EE;
+    --card: #FFFFFF;
+    --text: #1E1E1E;
+    --text-mid: #4A4A4A;
+    --text-light: #787878;
+    --border: #E2DED5;
+    --border-light: #F0EDE6;
+    --mental: #2B6B8A;
+    --mental-bg: #E9F2F7;
+    --mental-border: #BDD5E2;
+    --mental-dark: #1D4E66;
+    --rehab: #7A6841;
+    --rehab-bg: #F4EFE3;
+    --rehab-border: #D9CEAF;
+    --rehab-dark: #5A4D2E;
+    --child: #4A7A42;
+    --child-bg: #ECF3EA;
+    --child-border: #BCD4B6;
+    --child-dark: #355E2E;
+    --warn: #C44536;
+    --warn-bg: #FDF0EE;
+    --success: #2E7D32;
+    --success-bg: #E8F5E9;
+    --info: #1565C0;
+    --info-bg: #E3F2FD;
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.05);
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    --shadow-lg: 0 4px 24px rgba(0,0,0,0.08);
+    --r: 12px;
+    --r-sm: 8px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Heebo', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; -webkit-font-smoothing: antialiased; }
+  .hero { background: linear-gradient(145deg, #2B6B8A 0%, #1D4E66 50%, #162E3D 100%); padding: 48px 28px 40px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.035'%3E%3Ccircle cx='20' cy='20' r='1.5'/%3E%3C/g%3E%3C/svg%3E"); }
+  .hero-content { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+  .hero-meta { display: inline-flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center; margin-bottom: 16px; }
+  .hero-tag { display: inline-block; background: rgba(255,255,255,0.12); backdrop-filter: blur(6px); color: rgba(255,255,255,0.9); font-size: 12px; font-weight: 500; padding: 5px 14px; border-radius: 16px; }
+  .hero h1 { color: #fff; font-size: 28px; font-weight: 800; margin-bottom: 8px; line-height: 1.35; }
+  .hero-sub { color: rgba(255,255,255,0.75); font-size: 15px; font-weight: 300; max-width: 520px; margin: 0 auto; line-height: 1.6; }
+  .hero-audience { display: inline-block; margin-top: 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); font-size: 13px; padding: 6px 18px; border-radius: var(--r-sm); }
+  .nav { background: var(--card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+  .nav-inner { max-width: 1080px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-btn { flex-shrink: 0; padding: 13px 18px; font-family: 'Heebo', sans-serif; font-size: 13.5px; font-weight: 500; color: var(--text-light); background: transparent; border: none; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap; display: flex; align-items: center; gap: 7px; }
+  .nav-btn:hover { color: var(--text-mid); }
+  .nav-btn.active { color: var(--mental); border-bottom-color: var(--mental); font-weight: 600; }
+  .nav-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 60px; }
+  .sec { display: none; animation: up 0.3s ease; }
+  .sec.on { display: block; }
+  @keyframes up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .sh { margin-bottom: 24px; }
+  .sh h2 { font-size: 24px; font-weight: 700; display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .sh-icon { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+  .sh p { color: var(--text-light); font-size: 14px; font-weight: 300; padding-right: 44px; }
+  .sh-source { display: inline-block; margin-top: 8px; background: var(--info-bg); color: var(--info); font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 6px; }
+  .alert { border-radius: var(--r-sm); padding: 14px 18px; font-size: 13.5px; line-height: 1.6; margin-bottom: 20px; display: flex; gap: 10px; align-items: flex-start; }
+  .alert-icon { flex-shrink: 0; font-size: 16px; margin-top: 2px; }
+  .alert-warn { background: var(--warn-bg); border: 1px solid #F5C6C0; color: #8B2B20; }
+  .alert-info { background: var(--info-bg); border: 1px solid #BBDEFB; color: #0D47A1; }
+  .alert-success { background: var(--success-bg); border: 1px solid #C8E6C9; color: #1B5E20; }
+  .tc { background: var(--card); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 20px; border: 1px solid var(--border); }
+  .tc-head { padding: 14px 20px; font-size: 14px; font-weight: 600; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  .tc table { width: 100%; border-collapse: collapse; }
+  .tc th { font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; color: var(--text-light); padding: 11px 18px; text-align: right; border-bottom: 2px solid var(--border); background: rgba(0,0,0,0.015); }
+  .tc td { padding: 13px 18px; font-size: 13.5px; border-bottom: 1px solid var(--border-light); vertical-align: top; line-height: 1.55; }
+  .tc tr:last-child td { border-bottom: none; }
+  .tc tr:hover td { background: rgba(0,0,0,0.008); }
+  .b { display: inline-block; padding: 3px 9px; border-radius: 5px; font-size: 11.5px; font-weight: 500; white-space: nowrap; }
+  .b-vid { background: #E3F2FD; color: #1565C0; }
+  .b-tel { background: #FFF3E0; color: #BF6000; }
+  .b-both { background: #E8F5E9; color: #2E7D32; }
+  .b-async { background: #F3E5F5; color: #7B1FA2; }
+  .b-na { background: #F5F5F5; color: #999; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-bottom: 20px; }
+  .gc { background: var(--card); border-radius: var(--r-sm); padding: 18px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); transition: box-shadow 0.2s, transform 0.15s; }
+  .gc:hover { box-shadow: var(--shadow); transform: translateY(-1px); }
+  .gc-icon { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 16px; margin-bottom: 10px; }
+  .gc h4 { font-size: 13.5px; font-weight: 600; margin-bottom: 3px; }
+  .gc p { font-size: 12.5px; color: var(--text-light); line-height: 1.5; }
+  .flow { display: flex; flex-direction: column; max-width: 600px; margin: 0 auto; }
+  .flow-step { position: relative; background: var(--card); border-radius: var(--r); padding: 18px 22px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+  .flow-step:hover { box-shadow: var(--shadow); }
+  .flow-num { position: absolute; top: -10px; right: 18px; width: 22px; height: 22px; background: var(--mental); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+  .flow-q { font-size: 14px; font-weight: 600; margin-bottom: 10px; padding-top: 2px; }
+  .flow-ans { display: flex; gap: 10px; }
+  .flow-a { flex: 1; padding: 9px 12px; border-radius: var(--r-sm); font-size: 12.5px; line-height: 1.4; }
+  .flow-yes { background: var(--success-bg); border: 1px solid #C8E6C9; }
+  .flow-yes strong { color: var(--success); }
+  .flow-no { background: var(--warn-bg); border: 1px solid #FFCDD2; }
+  .flow-no strong { color: var(--warn); }
+  .flow-line { width: 2px; height: 16px; background: var(--border); margin: 0 auto; position: relative; }
+  .flow-line::after { content: '▾'; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); font-size: 10px; color: #bbb; }
+  .sum-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 28px; }
+  .sum-card { border-radius: var(--r); padding: 20px; border: 1px solid; position: relative; overflow: hidden; }
+  .sum-card::before { content: ''; position: absolute; top: 0; right: 0; width: 4px; height: 100%; }
+  .sum-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
+  .sum-card p { font-size: 13px; font-weight: 300; line-height: 1.5; }
+  .sc-m { background: var(--mental-bg); border-color: var(--mental-border); }
+  .sc-m::before { background: var(--mental); }
+  .sc-m h3 { color: var(--mental-dark); }
+  .sc-r { background: var(--rehab-bg); border-color: var(--rehab-border); }
+  .sc-r::before { background: var(--rehab); }
+  .sc-r h3 { color: var(--rehab-dark); }
+  .sc-c { background: var(--child-bg); border-color: var(--child-border); }
+  .sc-c::before { background: var(--child); }
+  .sc-c h3 { color: var(--child-dark); }
+  .checklist { background: var(--card); border-radius: var(--r); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 22px; max-width: 520px; }
+  .checklist h3 { font-size: 15px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .ck-item { display: flex; align-items: flex-start; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border-light); font-size: 13.5px; }
+  .ck-item:last-child { border-bottom: none; }
+  .ck-box { width: 20px; height: 20px; border: 2px solid var(--border); border-radius: 5px; flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.15s; background: #fff; }
+  .ck-box:hover { border-color: var(--mental); }
+  .ck-box.on { background: var(--mental); border-color: var(--mental); }
+  .ck-box.on::after { content: '\2713'; color: #fff; font-size: 12px; font-weight: 700; }
+  .dg { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+  .dg-item { background: var(--card); border-radius: var(--r-sm); padding: 14px 18px; border: 1px solid var(--border); display: flex; gap: 12px; align-items: flex-start; }
+  .dg-num { width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .dg-label { font-size: 12px; font-weight: 600; margin-bottom: 1px; }
+  .dg-val { font-size: 13px; color: var(--text-mid); line-height: 1.45; }
+  /* FAQ */
+  .faq-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .faq-filter { font-family: 'Heebo', sans-serif; font-size: 12.5px; font-weight: 500; padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); background: var(--card); color: var(--text-mid); cursor: pointer; transition: all 0.15s; }
+  .faq-filter:hover { border-color: var(--mental); color: var(--mental); }
+  .faq-filter.on { background: var(--mental); border-color: var(--mental); color: #fff; }
+  .faq-list { display: flex; flex-direction: column; gap: 10px; }
+  .faq-item { background: var(--card); border-radius: var(--r); border: 1px solid var(--border); box-shadow: var(--shadow-sm); overflow: hidden; transition: box-shadow 0.2s; }
+  .faq-item:hover { box-shadow: var(--shadow); }
+  .faq-item.open { box-shadow: var(--shadow); }
+  .faq-q { padding: 16px 20px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; user-select: none; transition: background 0.15s; }
+  .faq-q:hover { background: rgba(0,0,0,0.01); }
+  .faq-q .faq-arrow { font-size: 11px; color: var(--text-light); transition: transform 0.25s; flex-shrink: 0; }
+  .faq-item.open .faq-q .faq-arrow { transform: rotate(180deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.25s ease; }
+  .faq-item.open .faq-a { max-height: 600px; }
+  .faq-a-inner { padding: 0 20px 18px; font-size: 13.5px; line-height: 1.7; color: var(--text-mid); border-top: 1px solid var(--border-light); padding-top: 14px; }
+  .faq-a-inner strong { color: var(--text); }
+  .faq-tag { display: inline-block; font-size: 10.5px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-left: 8px; vertical-align: middle; }
+  .faq-tag-m { background: var(--mental-bg); color: var(--mental-dark); }
+  .faq-tag-r { background: var(--rehab-bg); color: var(--rehab-dark); }
+  .faq-tag-c { background: var(--child-bg); color: var(--child-dark); }
+  .faq-tag-g { background: #F0EDE6; color: #6B5B3E; }
+  .faq-source { display: inline-block; margin-top: 10px; font-size: 11.5px; color: var(--text-light); font-style: italic; }
+  .footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 12px; border-top: 1px solid var(--border); margin-top: 36px; line-height: 1.7; }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 22px; }
+    .hero { padding: 36px 16px 32px; }
+    .nav-btn { padding: 11px 12px; font-size: 12.5px; }
+    .wrap { padding: 20px 14px 40px; }
+    .tc th, .tc td { padding: 10px 12px; font-size: 12.5px; }
+    .flow-ans { flex-direction: column; gap: 6px; }
+    .grid { grid-template-columns: 1fr; }
+    .sum-row { grid-template-columns: 1fr; }
+    .dg { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-meta">
+      <span class="hero-tag">&#x1F4CB; מדריך מקצועי מאומת</span>
+      <span class="hero-tag">&#x1F5D3;&#xFE0F; עדכני ל-1.3.2026</span>
+    </div>
+    <h1>ריפוי בעיסוק בקהילה – טיפול מרחוק</h1>
+    <p class="hero-sub">מדריך מעשי למרפאות בעיסוק: מה מותר, באיזו פלטפורמה, ואיך מתעדים – בחלוקה לתחומי שירות</p>
+    <div class="hero-audience">&#x1F469;&#x200D;&#x2695;&#xFE0F; קהל יעד: מרפאות בעיסוק – כללית שירותי בריאות</div>
+  </div>
+</div>
+<div class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" data-sec="mental"><span class="nav-dot" style="background:var(--mental)"></span>בריאות הנפש</button>
+    <button class="nav-btn" data-sec="rehab"><span class="nav-dot" style="background:var(--rehab)"></span>שיקום / המשך טיפול</button>
+    <button class="nav-btn" data-sec="child"><span class="nav-dot" style="background:var(--child)"></span>התפתחות הילד</button>
+    <button class="nav-btn" data-sec="reqs"><span class="nav-dot" style="background:#8E6B6B"></span>דרישות כלליות</button>
+    <button class="nav-btn" data-sec="docs"><span class="nav-dot" style="background:#8E6B6B"></span>תיעוד ודיווח</button>
+    <button class="nav-btn" data-sec="decide"><span class="nav-dot" style="background:#5A6B8E"></span>תרשים החלטה</button>
+    <button class="nav-btn" data-sec="faq"><span class="nav-dot" style="background:#9B59B6"></span>שאלות ותשובות</button>
+  </div>
+</div>
+<div class="wrap">
+
+<!-- MENTAL HEALTH -->
+<div class="sec on" id="mental">
+  <div class="sh">
+    <h2><span class="sh-icon" style="background:var(--mental-bg);color:var(--mental)">&#x1F9E0;</span>בריאות הנפש</h2>
+    <p>ניתן להעביר את המענה המקצועי לערוץ מקוון, בכפוף לשיקול דעת המטפלים. ההנחיה תקפה לכל מסלולי השירות.</p>
+    <span class="sh-source">&#x1F4C4; מקור: הנחיות הפעלת מערך ברה&quot;ן – שאגת הארי, 3.3.2026</span>
+  </div>
+  <div class="alert alert-info">
+    <span class="alert-icon">&#x2139;&#xFE0F;</span>
+    <div>טיפול בערוץ המקוון ניתן לביצוע <strong>בוידאו או בטלפון</strong> (עדיפות לוידאו) ממתקני הכללית, על פי הנחיות מקצועיות ואמות המידה המקובלות. עבודה מהבית – באישור המחוז בלבד.</div>
+  </div>
+  <div class="tc">
+    <div class="tc-head" style="background:var(--mental-bg);color:var(--mental-dark)">&#x2726; סוגי התערבות מרחוק – בריאות הנפש</div>
+    <table>
+      <thead><tr><th>סוג התערבות</th><th>מה מותר מרחוק</th><th>פלטפורמה</th><th>תנאים</th><th>דיווח בקליקס</th></tr></thead>
+      <tbody>
+        <tr><td><strong>טיפול פרטני</strong></td><td>פסיכותרפיה פרטנית מלאה מרחוק</td><td><span class="b b-both">וידאו (עדיפות) או טלפון</span></td><td>לפי שיקול דעת מקצועי</td><td>קוד שירות <strong>74069</strong><br>לציין טיפול מרחוק + הסכמה</td></tr>
+        <tr><td><strong>טיפול קבוצתי</strong></td><td>טיפול קבוצתי מרחוק</td><td><span class="b b-vid">וידאו</span></td><td>כמו טיפול פרונטלי</td><td>קוד שירות <strong>74068</strong></td></tr>
+        <tr><td><strong>מעקב פסיכיאטרי תרופתי</strong></td><td>מעקב תרופתי מרחוק</td><td><span class="b b-both">וידאו או טלפון</span></td><td>פסיכיאטרים – מהות ביקור &quot;רגיל&quot; גם מהבית</td><td>קוד שירות <strong>74067</strong></td></tr>
+        <tr><td><strong>תמיכה במשבר</strong></td><td>עד 3 שיחות תמיכה טלפוניות</td><td><span class="b b-tel">טלפון</span></td><td>שירות חירום – מוקד ברה&quot;ן</td><td>תיעוד שיחה טיפולית</td></tr>
+        <tr><td><strong>התערבות ממוקדת משבר</strong></td><td>טיפול קצר מועד</td><td><span class="b b-vid">וידאו</span></td><td>במסגרת שירותי משבר</td><td>תיעוד טיפול מרחוק</td></tr>
+        <tr><td><strong>עבודה מהבית</strong></td><td>כל סוג טיפול מרחוק</td><td><span class="b b-both">וידאו או טלפון</span></td><td>באישור המחוז + טוקן + שקט ופרטיות</td><td>מהות ביקור: <strong>&quot;עבודה מהבית&quot;</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert alert-warn">
+    <span class="alert-icon">&#x26A0;&#xFE0F;</span>
+    <div><strong>שימו לב:</strong> מהות ביקור &quot;שיחה טלפונית&quot; משמשת <strong>לשיחה קצרה לעדכון בלבד</strong> – לא לטיפול בטלפון. לטיפול בטלפון יש לבחור מהות ביקור רגילה/עבודה מהבית עם קוד שירות מרחוק.</div>
+  </div>
+  <h3 style="font-size:16px;font-weight:700;margin:24px 0 12px;">תנאים לעבודה מהבית</h3>
+  <div class="grid" style="max-width:600px">
+    <div class="gc"><div class="gc-icon" style="background:var(--mental-bg);color:var(--mental)">&#x1F4BB;</div><h4>חיבור למערכות כללית</h4><p>אפשרות להתחבר למערכות כללית מהבית (טוקן)</p></div>
+    <div class="gc"><div class="gc-icon" style="background:var(--mental-bg);color:var(--mental)">&#x1F92B;</div><h4>שקט ופרטיות</h4><p>מקום עם שקט ופרטיות לקיום מפגשים</p></div>
+    <div class="gc"><div class="gc-icon" style="background:var(--mental-bg);color:var(--mental)">&#x23F1;&#xFE0F;</div><h4>אורך מפגש רגיל</h4><p>שיחה בוידאו או בטלפון באורך של פגישה רגילה</p></div>
+  </div>
+</div>
+
+<!-- REHABILITATION -->
+<div class="sec" id="rehab">
+  <div class="sh">
+    <h2><span class="sh-icon" style="background:var(--rehab-bg);color:var(--rehab)">&#x1F3E5;</span>שיקום בקהילה / יחידה להמשך טיפול</h2>
+    <p>בעיקר הדרכה, מעקב וייעוץ – התערבויות ממוקדות לשמירת רצף טיפולי</p>
+    <span class="sh-source">&#x1F4C4; מקור: מתווה עבודה מרחוק בשיקום</span>
+  </div>
+  <div class="tc">
+    <div class="tc-head" style="background:var(--rehab-bg);color:var(--rehab-dark)">&#x2726; סוגי התערבות מרחוק – שיקום</div>
+    <table>
+      <thead><tr><th>סוג התערבות</th><th>פירוט</th><th>פלטפורמה</th><th>תנאים</th><th>דיווח</th></tr></thead>
+      <tbody>
+        <tr><td><strong>הדרכה קוגניטיבית</strong></td><td>שיחות עם מטופלים שעברו הערכה קוגניטיבית/נוירולוגית – מתן הדרכה ותרגול ראשוניים לעבודה בבית. ניתן להיעזר בקוגנישיין לשליחת חומרים</td><td><span class="b b-both">וידאו או טלפון</span></td><td>לאחר הערכה קוגניטיבית/נוירולוגית קודמת</td><td>תיעוד רגיל + ציון טיפול מרחוק</td></tr>
+        <tr><td><strong>אינטייק ראשוני</strong></td><td>פרופיל עיסוקי ותפקודי. כאשר תתאפשר עבודה פרונטלית – יושלם תהליך הערכה באופן פרונטלי בלבד</td><td><span class="b b-both">שיחה מרחוק</span></td><td>הערכה מלאה בהמשך פרונטלית</td><td>תיעוד אינטייק</td></tr>
+        <tr><td><strong>ייעוץ כף יד – לאחר ניתוח</strong></td><td>ייעוץ און ליין למטופלי כף יד לאחר ניתוחים</td><td><span class="b b-both">וידאו או טלפון</span></td><td>מטופלים לאחר ניתוח</td><td>תיעוד ביקור</td></tr>
+        <tr><td><strong>הדרכה לתרגול עצמי</strong></td><td>ייעוץ און ליין למטופלי כף יד לתרגול עצמי</td><td><span class="b b-both">וידאו או טלפון</span></td><td>מטופלים פעילים</td><td>תיעוד טיפול</td></tr>
+        <tr><td><strong>תיעוד וסיכום</strong></td><td>תיעוד וסיכום הערכות ותהליכי טיפול</td><td><span class="b b-na">לא רלוונטי</span></td><td>עבודה מקצועית ללא מטופל</td><td>ללא דיווח טיפול</td></tr>
+        <tr><td><strong>פרויקטים מיוחדים</strong></td><td>הכנת מערכי קבוצה ובניית קבוצות טיפוליות חדשות</td><td><span class="b b-na">לא רלוונטי</span></td><td>ללא מטופל</td><td>ללא דיווח טיפול</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- CHILD DEVELOPMENT -->
+<div class="sec" id="child">
+  <div class="sh">
+    <h2><span class="sh-icon" style="background:var(--child-bg);color:var(--child)">&#x1F476;</span>התפתחות הילד</h2>
+    <p>טיפול מלא אפשרי מרחוק – עם מעורבות הורים, דגש על וידאו מאובטח, ואפשרות לטיפול ללא הערכה פרונטלית קודמת</p>
+    <span class="sh-source">&#x1F4C4; מקור: נוהל טיפול מרחוק בהתפתחות הילד – בחירום (118346426) + מסמך אמות מידה (118341026), 1.3.2026</span>
+  </div>
+  <div class="alert alert-success">
+    <span class="alert-icon">&#x2705;</span>
+    <div>תקף מ-1.3.2026 ועד להודעה חדשה. טיפול מרחוק נחשב כטיפול פרונטלי לכל דבר – הן מבחינת הזכאות והן מבחינת מחויבות ההורים ליום ולשעה. משך טיפול: <strong>45 דקות נטו + 15 דקות ניהול תיק</strong>.</div>
+  </div>
+  <div class="tc">
+    <div class="tc-head" style="background:var(--child-bg);color:var(--child-dark)">&#x2726; סוגי התערבות מרחוק – התפתחות הילד</div>
+    <table>
+      <thead><tr><th>סוג התערבות</th><th>מה מותר מרחוק</th><th>פלטפורמה</th><th>תנאים מקצועיים</th><th>דיווח</th></tr></thead>
+      <tbody>
+        <tr><td><strong>טיפול בילד</strong></td><td>טיפול סינכרוני תפקודי. הילד ינכח בחלק מהטיפול או בכולו, שאר הזמן להדרכת הורים</td><td><span class="b b-vid">וידאו מאובטח</span></td><td>הילד <strong>והורה</strong> נוכחים. ההורה בסביבה שהגדירה המטפלת</td><td>תיעוד טיפול מרחוק + סיבה. קודים לטיפולים מרחוק</td></tr>
+        <tr><td><strong>הדרכת הורים (חלק מטיפול)</strong></td><td>הדרכה והכוונה במהלך מפגש. הצגת סרטונים עם הנחיות והדגמות</td><td><span class="b b-vid">וידאו</span></td><td>חלק מהמפגש הטיפולי. לוודא שההורה מבין את ההנחיות</td><td>תיעוד מפגש</td></tr>
+        <tr><td><strong>התערבות טיפולית עם הורים בלבד</strong></td><td>קבלת מידע, מעקב והדרכת הורים</td><td><span class="b b-tel">טלפון</span></td><td><strong>רק כאשר לא מתאפשר ביצוע בוידאו</strong></td><td>תיעוד הדרכה</td></tr>
+        <tr><td><strong>שילוב חומרים א-סינכרוניים</strong></td><td>סרטונים/תמונות שנשלחו מבעוד מועד, צפייה משותפת + פידבק במפגש</td><td><span class="b b-async">א-סינכרוני + וידאו סינכרוני</span></td><td>משולב בטיפול סינכרוני</td><td>תיעוד בתיק</td></tr>
+        <tr><td><strong>ילדים מעל גיל 9 – ASD / לקות סומטית</strong></td><td>טיפול <strong>הדרכתי</strong> בלבד</td><td><span class="b b-tel">טלפון</span></td><td>רק כאשר למשפחה אין אפשרות להתחבר לוידאו מאובטח</td><td>תיעוד הדרכה</td></tr>
+        <tr><td><strong>טיפול ללא הערכה פרונטלית קודמת</strong></td><td>ניתן לקיים טיפול מרחוק ללא הערכה פרונטלית</td><td><span class="b b-vid">וידאו</span></td><td>הפניה להערכה פרונטלית מלאה <strong>במועד הקרוב שניתן</strong></td><td>תיעוד סיבת טיפול מרחוק</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert alert-warn">
+    <span class="alert-icon">&#x26A0;&#xFE0F;</span>
+    <div><strong>הפסקת טיפול מרחוק</strong> תתבצע כאשר: ההורה/ילד מבקשים להפסיק &#x2502; חסרה הענות/התאמה לטכנולוגיה &#x2502; שינוי נסיבות מאפשר טיפול פרונטלי ויש לו עדיפות טיפולית.</div>
+  </div>
+</div>
+
+<!-- REQUIREMENTS -->
+<div class="sec" id="reqs">
+  <div class="sh">
+    <h2><span class="sh-icon" style="background:#F5EBEB;color:#8E6B6B">&#x1F4CC;</span>דרישות כלליות לטיפול מרחוק</h2>
+    <p>תנאים שחובה שיתקיימו לפני ובמהלך כל טיפול מרחוק – על פי כלל מסמכי המקור</p>
+  </div>
+  <div class="grid">
+    <div class="gc"><div class="gc-icon" style="background:var(--mental-bg);color:var(--mental)">&#x1FAAA;</div><h4>רישוי מקצועי</h4><p>תעודת מקצוע מטעם משרד הבריאות בישראל על פי חוק הסדרת העיסוק במקצועות הבריאות 2008</p></div>
+    <div class="gc"><div class="gc-icon" style="background:var(--rehab-bg);color:var(--rehab)">&#x1F4C5;</div><h4>ניסיון מקצועי</h4><p>מטפל עם <strong>פחות משנתיים ניסיון</strong> – חייב הדרכה צמודה. מומלצת הדרכה לכלל המטפלים ללא קשר לוותק</p></div>
+    <div class="gc"><div class="gc-icon" style="background:var(--child-bg);color:var(--child)">&#x1F512;</div><h4>אבטחת מידע</h4><p>מערכת וידאו מאובטחת לפי תקן ISO 27799 ו-ISO 2700, כמוזכר בחוזר אמות מידה להפעלת שירות בריאות מרחוק</p></div>
+    <div class="gc"><div class="gc-icon" style="background:#E3F2FD;color:#1565C0">&#x270D;&#xFE0F;</div><h4>הסכמה לטיפול</h4><p>חובה לקבל הסכמה מהמטופל או מההורה/אפוטרופוס. בהתפתחות הילד – הסכמה בכתב (מסמך פנימי שיסרק לתיק)</p></div>
+    <div class="gc"><div class="gc-icon" style="background:#FFF3E0;color:#E65100">&#x1F92B;</div><h4>פרטיות</h4><p>סביבת טיפול שקטה ופרטית – גם אצל המטפל וגם אצל המטופל</p></div>
+    <div class="gc"><div class="gc-icon" style="background:var(--success-bg);color:var(--success)">&#x1FAAA;</div><h4>זיהוי מטופל</h4><p>חובה לבצע זיהוי ברור וחד-ערכי לפני תחילת טיפול</p></div>
+    <div class="gc"><div class="gc-icon" style="background:#F3E5F5;color:#7B1FA2">&#x1F4DD;</div><h4>תיעוד</h4><p>חובה לציין שהטיפול בוצע מרחוק והסיבה לכך. תיעוד באופן המקובל במכון/יחידה</p></div>
+    <div class="gc"><div class="gc-icon" style="background:#E3F2FD;color:#1565C0">&#x2705;</div><h4>סטטוס טיפול</h4><p>טיפול מרחוק נחשב כטיפול פרונטלי לכל דבר – הן מבחינת זכאות לטיפולים והן מבחינת מחויבות ליום ולשעה</p></div>
+  </div>
+  <div class="checklist">
+    <h3>&#x270B; כלל אצבע – לפני תחילת טיפול מרחוק</h3>
+    <p style="font-size:12.5px;color:var(--text-light);margin-bottom:14px;">ניתן לבצע טיפול מרחוק כאשר מתקיימים <strong>כל</strong> התנאים:</p>
+    <div class="ck-item"><div class="ck-box" onclick="this.classList.toggle('on')"></div><span>המטופל מתאים קלינית לטיפול מרחוק</span></div>
+    <div class="ck-item"><div class="ck-box" onclick="this.classList.toggle('on')"></div><span>קיימת פלטפורמה מאובטחת (ISO 27799)</span></div>
+    <div class="ck-item"><div class="ck-box" onclick="this.classList.toggle('on')"></div><span>ניתן להיכנס לתיק הרפואי ולתעד</span></div>
+    <div class="ck-item"><div class="ck-box" onclick="this.classList.toggle('on')"></div><span>התקבלה הסכמה לטיפול מרחוק</span></div>
+    <div class="ck-item"><div class="ck-box" onclick="this.classList.toggle('on')"></div><span>נשמרת פרטיות וסביבה שקטה</span></div>
+    <p style="font-size:13px;color:var(--warn);margin-top:12px;font-weight:600;">&#x26A0;&#xFE0F; אם אחד התנאים אינו מתקיים – אין לבצע טיפול מרחוק.</p>
+    <p style="font-size:12.5px;color:var(--text-light);margin-top:4px;">אם לא ניתן לתעד בתיק – אין לבצע טיפול.</p>
+  </div>
+</div>
+
+<!-- DOCUMENTATION -->
+<div class="sec" id="docs">
+  <div class="sh">
+    <h2><span class="sh-icon" style="background:#F5EBEB;color:#8E6B6B">&#x1F4CB;</span>כללי תיעוד ודיווח</h2>
+    <p>הנחיות לתיעוד נכון של טיפול מרחוק בתיק הרפואי – בקליקס</p>
+  </div>
+  <div class="tc" style="margin-bottom:24px">
+    <div class="tc-head" style="background:#F5EBEB;color:#6B4F4F">&#x2726; הנחיות תיעוד</div>
+    <table>
+      <thead><tr><th>נושא</th><th>הנחיה</th></tr></thead>
+      <tbody>
+        <tr><td><strong>הסכמה</strong></td><td>לציין שניתנה הסכמה לטיפול מרחוק</td></tr>
+        <tr><td><strong>ערוץ טיפול</strong></td><td>לציין אם הטיפול בוידאו או בטלפון</td></tr>
+        <tr><td><strong>תיעוד קליני</strong></td><td>לרשום עיקרי מפגש כמו בטיפול פרונטלי</td></tr>
+        <tr><td><strong>מקום המטפל</strong></td><td>לציין אם המטפל במרפאה או בבית (מהות ביקור בקליקס)</td></tr>
+        <tr><td><strong>סיבת טיפול מרחוק</strong></td><td>לציין בתיעוד הביקור שבוצע מרחוק והסיבה לכך</td></tr>
+        <tr><td><strong>פתיחת תיק – מטופל פעיל</strong></td><td>אין צורך בכרטיס</td></tr>
+        <tr><td><strong>פתיחת תיק – מטופל חדש</strong></td><td>תהליך &quot;פתיחת תיק ללא כרטיס&quot; – טלפון *2704 או זיהוי ב-SMS</td></tr>
+        <tr><td><strong>תנאי לביצוע טיפול</strong></td><td><strong>אם לא ניתן לתעד בתיק – אין לבצע טיפול</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 style="font-size:15px;font-weight:700;margin-bottom:10px;">דגשי דיווח לברה&quot;ן בקליקס</h3>
+  <div class="alert alert-info" style="margin-bottom:16px">
+    <span class="alert-icon">&#x1F4A1;</span>
+    <div><strong>מהות ביקור:</strong> מסמנים את מקום המטפל/ת (רגיל או עבודה מהבית).<br><strong>שירותים:</strong> מסמנים את המענה ומיקום המטופלים – &quot;פסיכותרפיה פרטנית מרחוק – 74069&quot; או &quot;טיפול/מעקב פסיכיאטרי תרופתי מרחוק – 74067&quot;</div>
+  </div>
+  <h3 style="font-size:15px;font-weight:700;margin:24px 0 12px;">&#x1F4C4; מה חייב להופיע בתיעוד</h3>
+  <div class="dg">
+    <div class="dg-item"><div class="dg-num" style="background:var(--mental-bg);color:var(--mental-dark)">1</div><div><div class="dg-label">הסכמה</div><div class="dg-val">ניתנה הסכמה לטיפול מרחוק</div></div></div>
+    <div class="dg-item"><div class="dg-num" style="background:var(--mental-bg);color:var(--mental-dark)">2</div><div><div class="dg-label">פלטפורמה</div><div class="dg-val">וידאו או טלפון</div></div></div>
+    <div class="dg-item"><div class="dg-num" style="background:var(--mental-bg);color:var(--mental-dark)">3</div><div><div class="dg-label">סוג טיפול</div><div class="dg-val">הדרכה / טיפול / מעקב</div></div></div>
+    <div class="dg-item"><div class="dg-num" style="background:var(--mental-bg);color:var(--mental-dark)">4</div><div><div class="dg-label">עיקרי מפגש</div><div class="dg-val">סיכום קליני</div></div></div>
+    <div class="dg-item"><div class="dg-num" style="background:var(--mental-bg);color:var(--mental-dark)">5</div><div><div class="dg-label">מיקום המטפל</div><div class="dg-val">מרפאה או עבודה מהבית</div></div></div>
+    <div class="dg-item"><div class="dg-num" style="background:var(--mental-bg);color:var(--mental-dark)">6</div><div><div class="dg-label">סיבת טיפול מרחוק</div><div class="dg-val">מצב חירום / אילוץ</div></div></div>
+  </div>
+</div>
+
+<!-- DECISION TREE -->
+<div class="sec" id="decide">
+  <div class="sh">
+    <h2><span class="sh-icon" style="background:#EBF0F7;color:#5A6B8E">&#x1F500;</span>תרשים החלטה – טיפול מרחוק</h2>
+    <p>מסלול קבלת החלטות שלב-אחר-שלב לפני תחילת טיפול מרחוק</p>
+  </div>
+  <div class="flow">
+    <div class="flow-step"><div class="flow-num">1</div><div class="flow-q">האם המטופל שייך לאחד התחומים: בריאות הנפש / שיקום בקהילה / התפתחות הילד?</div><div class="flow-ans"><div class="flow-a flow-yes"><strong>כן &#x2190;</strong> המשך לשלב 2</div><div class="flow-a flow-no"><strong>לא &#x2190;</strong> אין לבצע טיפול מרחוק</div></div></div>
+    <div class="flow-line"></div>
+    <div class="flow-step"><div class="flow-num">2</div><div class="flow-q">האם יש אפשרות למפגש וידאו מאובטח (ISO 27799)?</div><div class="flow-ans"><div class="flow-a flow-yes"><strong>כן &#x2190;</strong> עדיפות לטיפול בוידאו</div><div class="flow-a flow-no"><strong>לא &#x2190;</strong> בדוק אם מותר טיפול טלפוני (שלב 3)</div></div></div>
+    <div class="flow-line"></div>
+    <div class="flow-step"><div class="flow-num">3</div><div class="flow-q">האם הטיפול הוא הדרכה / מעקב / תמיכה?</div><div class="flow-ans"><div class="flow-a flow-yes"><strong>כן &#x2190;</strong> ניתן לבצע שיחה טלפונית</div><div class="flow-a flow-no"><strong>לא &#x2190;</strong> להמתין למפגש וידאו או טיפול פרונטלי</div></div></div>
+    <div class="flow-line"></div>
+    <div class="flow-step"><div class="flow-num">4</div><div class="flow-q">האם המטפל יכול לעבוד בסביבה פרטית ושקטה?</div><div class="flow-ans"><div class="flow-a flow-yes"><strong>כן &#x2190;</strong> המשך</div><div class="flow-a flow-no"><strong>לא &#x2190;</strong> אין לבצע טיפול מרחוק</div></div></div>
+    <div class="flow-line"></div>
+    <div class="flow-step"><div class="flow-num">5</div><div class="flow-q">האם ניתן להיכנס לתיק הרפואי ולתעד?</div><div class="flow-ans"><div class="flow-a flow-yes"><strong>כן &#x2190;</strong> המשך</div><div class="flow-a flow-no"><strong>לא &#x2190;</strong> אין לבצע טיפול</div></div></div>
+    <div class="flow-line"></div>
+    <div class="flow-step"><div class="flow-num">6</div><div class="flow-q">האם התקבלה הסכמה לטיפול מרחוק?</div><div class="flow-ans"><div class="flow-a flow-yes"><strong>כן &#x2190;</strong> &#x2705; ניתן להתחיל טיפול</div><div class="flow-a flow-no"><strong>לא &#x2190;</strong> לקבל הסכמה לפני תחילת טיפול</div></div></div>
+  </div>
+  <h3 style="font-size:17px;font-weight:700;margin:36px 0 14px;">סיכום – בחירת סוג טיפול לפי תחום</h3>
+  <div class="sum-row">
+    <div class="sum-card sc-m"><h3>&#x1F9E0; בריאות הנפש</h3><p>טיפול מלא מרחוק – פרטני וקבוצתי<br><span style="font-size:11.5px;opacity:0.7">וידאו (עדיפות) או טלפון | קוד 74069</span></p></div>
+    <div class="sum-card sc-r"><h3>&#x1F3E5; שיקום בקהילה</h3><p>הדרכה, מעקב, אינטייק, ייעוץ כף יד<br><span style="font-size:11.5px;opacity:0.7">וידאו או טלפון | השלמת הערכה פרונטלית</span></p></div>
+    <div class="sum-card sc-c"><h3>&#x1F476; התפתחות הילד</h3><p>טיפול מלא עם מעורבות הורים<br><span style="font-size:11.5px;opacity:0.7">וידאו (עדיפות) | טלפון להדרכה בלבד כשאין וידאו</span></p></div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="sec" id="faq">
+  <div class="sh">
+    <h2><span class="sh-icon" style="background:#F3E5F5;color:#9B59B6">&#x2753;</span>שאלות ותשובות</h2>
+    <p>תשובות לשאלות נפוצות על טיפול מרחוק – מבוסס על מסמכי הנהלים הרשמיים</p>
+  </div>
+
+  <div class="faq-filters">
+    <button class="faq-filter on" onclick="filterFaq('all',this)">&#x1F4CB; הכל</button>
+    <button class="faq-filter" onclick="filterFaq('general',this)">&#x1F4CC; כללי</button>
+    <button class="faq-filter" onclick="filterFaq('mental',this)">&#x1F9E0; בריאות הנפש</button>
+    <button class="faq-filter" onclick="filterFaq('rehab',this)">&#x1F3E5; שיקום</button>
+    <button class="faq-filter" onclick="filterFaq('child',this)">&#x1F476; התפתחות הילד</button>
+    <button class="faq-filter" onclick="filterFaq('docs',this)">&#x1F4DD; תיעוד</button>
+  </div>
+
+  <div class="faq-list">
+
+    <!-- GENERAL -->
+    <div class="faq-item" data-cat="general">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>האם טיפול מרחוק נחשב כטיפול רגיל מבחינת זכאות?<span class="faq-tag faq-tag-g">כללי</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <strong>כן.</strong> טיפול מרחוק נחשב כטיפול פרונטלי לכל דבר – הן מבחינת הזכאות לטיפולים, הן מבחינת ההשתתפות העצמית, והן מבחינת מחויבות המטופל/ההורים ליום ולשעה. יש להשתמש בקודים לטיפולים מרחוק.
+        <div class="faq-source">מקור: נוהל 118346426, סעיף 5 | הנחיות ברה&quot;ן שאגת הארי</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="general">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>מה דרישות הסף למטפל שרוצה לתת טיפול מרחוק?<span class="faq-tag faq-tag-g">כללי</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        נדרשת <strong>תעודת מקצוע מטעם משרד הבריאות</strong> על פי חוק הסדרת העיסוק במקצועות הבריאות 2008. מטפלים עם <strong>פחות משנתיים ניסיון</strong> מקצועי חייבים לקבל הדרכה צמודה בתחום הטיפול מרחוק. מומלצת הדרכה גם למטפלים עם ותק של מתחת לחמש שנים, וכן לכלל המטפלים ללא קשר לשנות ניסיון.
+        <div class="faq-source">מקור: נוהל 118346426, סעיף 3 | מסמך אמות מידה 118341026</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="general">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>איזו מערכת וידאו מותר להשתמש בה?<span class="faq-tag faq-tag-g">כללי</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        המערכת חייבת לעמוד בדרישות הסודיות ואבטחת המידע על פי <strong>תקן ISO 27799 ו-ISO 2700</strong>, כמוזכר בחוזר אמות מידה להפעלת שירות בריאות מרחוק. עדיפות למחשב הכולל מערכת צפייה ושמע דו-כיווני, כולל אפשרות לצפייה בסרטונים מקצועיים במקביל לקשר עם הילד/המטופל. איכות הקול והתמונה צריכים לאפשר תקשורת איכותית.
+        <div class="faq-source">מקור: נוהל 118346426, סעיף 4 | מסמך אמות מידה 118341026 – סודיות ואתיקה</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="general">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>האם חייבים לקבל הסכמה לטיפול מרחוק? באיזו צורה?<span class="faq-tag faq-tag-g">כללי</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <strong>כן, חובה.</strong> יש ליידע את המטופל/ההורה על כל חלופות השירות ולקבל הסכמה. בהתפתחות הילד נדרשת <strong>הסכמה בכתב</strong> (מסמך פנימי שייסרק לתיק). ההסכמה תתקבל לאחר מתן מידע מלא: פרטים על השירות, השיטות, הציוד, וחלופות. להורה/מטופל קיימת הזכות להפסיק או לסרב לקבל שירות מסוג זה בכל עת. יש להבהיר שלא ייעשה תיעוד מוקלט של המפגש (למעט לצרכי הדרכה בהסכמה חתומה).
+        <div class="faq-source">מקור: מסמך אמות מידה 118341026 – אבטחת מידע והעברת תכנים</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="general">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>מתי הנהלים האלה תקפים?<span class="faq-tag faq-tag-g">כללי</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        הנהלים תקפים <strong>מ-1.3.2026 ועד להודעה חדשה</strong>, עקב מצב החירום הנוכחי (&quot;שאגת הארי&quot;). יש להתעדכן בהנחיות הכלליות של משרד הבריאות למכונים וליחידות, המופצות מעת לעת. ההנחיות נועדו למנוע חסר או עיכוב מתן שירות שעלול לפגוע בסיכויי הילדים/המטופלים.
+        <div class="faq-source">מקור: נוהל 118346426 | הנחיות ברה&quot;ן שאגת הארי 3.3.2026</div>
+      </div></div>
+    </div>
+
+    <!-- MENTAL HEALTH -->
+    <div class="faq-item" data-cat="mental">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>האם מותר לי לעבוד מהבית בברה&quot;ן?<span class="faq-tag faq-tag-m">בריאות הנפש</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <strong>רק באישור המחוז.</strong> אם קיבלת אישור, עליך לעמוד בשלושה תנאים: (1) יש לך אפשרות להתחבר למערכות כללית מהבית באמצעות טוקן, (2) יש לך מקום עם שקט ופרטיות לקיום מפגשים, (3) את/ה מבצע/ת שיחה בוידאו או בטלפון באורך של פגישה רגילה. במהות ביקור בקליקס יש לסמן <strong>&quot;עבודה מהבית&quot;</strong>.
+        <div class="faq-source">מקור: הנחיות ברה&quot;ן שאגת הארי 3.3.2026</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="mental">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>מה ההבדל בין &quot;שיחה טלפונית&quot; ל&quot;טיפול בטלפון&quot; בדיווח?<span class="faq-tag faq-tag-m">בריאות הנפש</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <strong>זה הבדל קריטי בדיווח.</strong> מהות ביקור &quot;שיחה טלפונית&quot; בקליקס משמשת <strong>לשיחה קצרה לעדכון בלבד</strong> – לא לטיפול בטלפון. כשאת/ה מבצע/ת טיפול ממשי בטלפון (פסיכותרפיה, מעקב תרופתי וכו'), יש לבחור מהות ביקור &quot;רגיל&quot; או &quot;עבודה מהבית&quot; ולסמן בשירותים את הקוד המתאים: 74069 (פסיכותרפיה פרטנית מרחוק) או 74067 (מעקב פסיכיאטרי תרופתי מרחוק).
+        <div class="faq-source">מקור: הנחיות ברה&quot;ן שאגת הארי – נספח 1 תיעוד טיפול מרחוק</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="mental">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>האם אפשר לקיים טיפול קבוצתי מרחוק בברה&quot;ן?<span class="faq-tag faq-tag-m">בריאות הנפש</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <strong>כן</strong>, ניתן לקיים טיפול קבוצתי מרחוק <strong>בוידאו בלבד</strong> (לא בטלפון). התנאים זהים לטיפול קבוצתי פרונטלי. קוד השירות לדיווח הוא <strong>74068</strong>.
+        <div class="faq-source">מקור: הנחיות ברה&quot;ן שאגת הארי</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="mental">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>כמה שיחות תמיכה אפשר לתת למטופל במשבר?<span class="faq-tag faq-tag-m">בריאות הנפש</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        ניתן לספק <strong>עד 3 שיחות תמיכה טלפוניות</strong> כחלק ממענה למשבר. מעבר לכך, קיימת אפשרות להתערבות ממוקדת משבר (טיפול קצר מועד). שירותים אלו זמינים דרך מוקד ברה&quot;ן.
+        <div class="faq-source">מקור: הנחיות ברה&quot;ן שאגת הארי – שירותים זמינים במשבר</div>
+      </div></div>
+    </div>
+
+    <!-- REHAB -->
+    <div class="faq-item" data-cat="rehab">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>האם אפשר לעשות אינטייק מרחוק בשיקום?<span class="faq-tag faq-tag-r">שיקום</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <strong>כן, אינטייק ראשוני בלבד.</strong> ניתן לבצע פרופיל עיסוקי ותפקודי מרחוק. עם זאת, <strong>כאשר תתאפשר עבודה פרונטלית, יש להשלים את תהליך ההערכה באופן פרונטלי בלבד</strong>. האינטייק מרחוק נועד לשמור על רצף טיפולי ולמנוע עיכוב בתחילת הטיפול.
+        <div class="faq-source">מקור: מתווה עבודה מרחוק בשיקום, סעיף 2</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="rehab">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>אני מרפאה בעיסוק בתחום כף היד – מה מותר לי מרחוק?<span class="faq-tag faq-tag-r">שיקום</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        מותרים שני סוגי התערבות מרחוק: (1) <strong>ייעוץ למטופלים לאחר ניתוחי כף יד</strong> – בוידאו או בטלפון, (2) <strong>הדרכה לתרגול עצמי למטופלים פעילים</strong> – בוידאו או בטלפון. שני סוגי ההתערבות מחייבים תיעוד ביקור בתיק.
+        <div class="faq-source">מקור: מתווה עבודה מרחוק בשיקום, סעיפים 3-4</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="rehab">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>האם הכנת מערכי קבוצה ותוכניות טיפול מהבית נחשבת טיפול מרחוק?<span class="faq-tag faq-tag-r">שיקום</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <strong>לא.</strong> עבודה מקצועית כמו תיעוד וסיכום הערכות, הכנת מערכי קבוצה, ובניית קבוצות טיפוליות חדשות – אלה פעילויות <strong>ללא מטופל</strong> ואינן דורשות דיווח טיפולי. הן מוגדרות כ&quot;פרויקטים מיוחדים&quot; או &quot;תיעוד וסיכום&quot; ולא כטיפול מרחוק.
+        <div class="faq-source">מקור: מתווה עבודה מרחוק בשיקום, סעיפים 5-6</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="rehab">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>האם אפשר להשתמש בפלטפורמת קוגנישיין לשליחת חומרים?<span class="faq-tag faq-tag-r">שיקום</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <strong>כן.</strong> במסגרת הדרכה קוגניטיבית מרחוק, ניתן להיעזר ב<strong>קוגנישיין לשליחת חומרים לתרגול</strong>. זה מותנה בכך שהמטופל עבר הערכה קוגניטיבית או נוירולוגית קודמת, וההדרכה מרחוק נועדה למתן הדרכה ותרגול ראשוניים לעבודה בבית.
+        <div class="faq-source">מקור: מתווה עבודה מרחוק בשיקום, סעיף 1</div>
+      </div></div>
+    </div>
+
+    <!-- CHILD DEVELOPMENT -->
+    <div class="faq-item" data-cat="child">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>האם ההורה חייב להיות נוכח במפגש מרחוק בהתפתחות הילד?<span class="faq-tag faq-tag-c">התפתחות הילד</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <strong>כן, חובה.</strong> בטיפול מרחוק המטפלת, ההורה והילד (לפי הצורך) נוכחים במפגש. הילד יכול לנכח רק בחלק מהטיפול, ושאר הזמן יוקדש להדרכת ההורים. על ההורה להיות ליד ילדו <strong>בסביבה שהגדירה המטפלת</strong>. חשוב שהמטפלת תסביר להורה מה תפקידו ומה נדרש ממנו במהלך המפגש.
+        <div class="faq-source">מקור: מסמך אמות מידה 118341026 – אמות מידה לטיפול מרחוק</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="child">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>האם אפשר לטפל בטלפון בילד?<span class="faq-tag faq-tag-c">התפתחות הילד</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <strong>באופן מוגבל מאוד.</strong> טיפול בטלפון אפשרי בשני מקרים בלבד: (1) <strong>התערבות הדרכתית עם הורים</strong> – קבלת מידע, מעקב והדרכה, רק כשלא מתאפשר ביצוע בוידאו. (2) <strong>ילדים מעל גיל 9 עם לקויות סומטיות או על הרצף האוטיסטי</strong> – טיפול הדרכתי בלבד, ורק כשלמשפחה אין אפשרות להתחבר לוידאו מאובטח. בכל מקרה אחר – <strong>חובה וידאו</strong>.
+        <div class="faq-source">מקור: נוהל 118346426, סעיפים 1-2 | מסמך אמות מידה 118341026</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="child">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>יש לי מטופל חדש שלא עבר הערכה פרונטלית – אפשר להתחיל טיפול מרחוק?<span class="faq-tag faq-tag-c">התפתחות הילד</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <strong>כן, במידת הצורך.</strong> ניתן לקיים טיפול מרחוק ללא הערכה פרונטלית קודמת. עם זאת, <strong>הפניה להערכה פרונטלית מלאה תתבצע במועד הכי קרוב שניתן</strong>. בנוסף, אם כל סדרת הטיפול התקיימה מרחוק, יש לפנות להערכה פרונטלית בהקדם האפשרי כשהדבר יתאפשר. חשוב לתעד את סיבת הטיפול מרחוק.
+        <div class="faq-source">מקור: נוהל 118346426, סעיף 7 | מסמך אמות מידה 118341026 – סיום טיפול</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="child">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>מה משך הטיפול מרחוק בהתפתחות הילד?<span class="faq-tag faq-tag-c">התפתחות הילד</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        משך הטיפול מרחוק <strong>זהה לטיפול פרונטלי: 45 דקות נטו + 15 דקות</strong> הכוללות ניהול תיק והתארגנות. עקרונות הטיפול מרחוק זהים לעקרונות הטיפול הפרונטלי ומבוססים על מטרות תפקודיות מותאמות לצרכי הילד והמשפחה.
+        <div class="faq-source">מקור: מסמך אמות מידה 118341026 – הגדרות</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="child">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>מתי צריך להפסיק טיפול מרחוק ולעבור לפרונטלי?<span class="faq-tag faq-tag-c">התפתחות הילד</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        הפסקת הטיפול מרחוק תתבצע בשלושה מצבים: (1) <strong>ההורה או הילד מבקשים</strong> להפסיק את השירות מרחוק, (2) <strong>חסרה הענות או התאמה</strong> של הילד ו/או ההורה לטכנולוגיה ולסוג השירות, (3) <strong>שינוי הנסיבות מאפשר טיפול פרונטלי</strong> ויש עדיפות טיפולית לטיפול כזה. בנוסף, יש לשקול את כמות הטיפולים מרחוק ולשמור על מספיק טיפולים מהסל למפגשים פרונטאליים.
+        <div class="faq-source">מקור: נוהל 118346426, סעיף 8 | מסמך אמות מידה 118341026 – אמות מידה להפסקת השירות</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="child">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>האם מותר להשתמש בסרטונים במהלך הטיפול מרחוק?<span class="faq-tag faq-tag-c">התפתחות הילד</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <strong>כן, בשילוב עם מפגש סינכרוני.</strong> ניתן לשלב שימוש בסרטונים שנשלחו מבעוד מועד – המטפלת וההורה צופים יחד ומקבלים פידבק בזמן אמת. ניתן גם להציג סרטונים עם הנחיות והדגמות. <strong>חשוב שהמטפלת תסביר ותבדוק שההורה מבין את ההנחיות.</strong> זהו שימוש א-סינכרוני משולב בטיפול סינכרוני ויש לתעד אותו בתיק.
+        <div class="faq-source">מקור: מסמך אמות מידה 118341026 – אמות מידה לטיפול מרחוק</div>
+      </div></div>
+    </div>
+
+    <!-- DOCUMENTATION -->
+    <div class="faq-item" data-cat="docs">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>איך פותחים תיק למטופל חדש בטיפול מרחוק?<span class="faq-tag faq-tag-g">תיעוד</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        למטופל <strong>פעיל</strong> במקצועות הבריאות – אין צורך בכרטיס. למטופל <strong>חדש</strong> במקצועות הבריאות – יש לבצע תהליך <strong>&quot;פתיחת תיק ללא כרטיס&quot;</strong>. קיימות שתי אפשרויות: (1) טלפון <strong>*2704</strong>, (2) זיהוי לקוח ב-<strong>SMS</strong>. <strong>חשוב:</strong> אם לא ניתן לתעד בתיק – אין לבצע טיפול.
+        <div class="faq-source">מקור: הנחיות ברה&quot;ן שאגת הארי – נספח 1 תיעוד</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="docs">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>מה חייב להופיע בכל תיעוד של טיפול מרחוק?<span class="faq-tag faq-tag-g">תיעוד</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        בכל תיעוד טיפול מרחוק חייבים להופיע: (1) <strong>שניתנה הסכמה</strong> לטיפול מרחוק, (2) <strong>הפלטפורמה</strong> – וידאו או טלפון, (3) <strong>סוג הטיפול</strong> – הדרכה/טיפול/מעקב, (4) <strong>עיקרי המפגש</strong> – סיכום קליני כמו בטיפול פרונטלי, (5) <strong>מיקום המטפל</strong> – מרפאה או עבודה מהבית, (6) <strong>שהטיפול בוצע מרחוק והסיבה לכך</strong>.
+        <div class="faq-source">מקור: נוהל 118346426, סעיף 6 | הנחיות ברה&quot;ן – נספח 1</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item" data-cat="docs">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>האם מותר להקליט מפגש טיפולי מרחוק?<span class="faq-tag faq-tag-g">תיעוד</span></span>
+        <span class="faq-arrow">&#x25BC;</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <strong>לא, באופן עקרוני.</strong> התיעוד הוא ברשומה הרפואית בלבד, כמקובל בכל מפגש טיפולי. הקלטה של מפגש לצרכי <strong>הדרכה בלבד</strong> אפשרית רק ב<strong>הסכמה חתומה של ההורים</strong>, ובפירוט השימוש שייעשה בחומרים המצולמים. יש להבהיר למטופל בעת קבלת ההסכמה שלא ייעשה תיעוד מוקלט.
+        <div class="faq-source">מקור: מסמך אמות מידה 118341026 – אבטחת מידע והעברת תכנים</div>
+      </div></div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+<div class="footer">
+  <strong>ריפוי בעיסוק בקהילה – טבלת נהלים מסכמת לטיפול מרחוק</strong><br>
+  מבוסס על: הנחיות מערך ברה&quot;ן שאגת הארי (3.3.2026) | מתווה עבודה מרחוק בשיקום | נוהל טיפול מרחוק בהתפתחות הילד (118346426) | אמות מידה לטיפול מרחוק בהתפתחות הילד (118341026)<br>
+  <span style="color:var(--warn)">&#x26A0;&#xFE0F; מסמך זה הוא סיכום מנגיש – יש לעיין גם במסמכי המקור המלאים</span>
+</div>
+<script>
+document.querySelectorAll('.nav-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('on')});
+    document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active')});
+    document.getElementById(btn.dataset.sec).classList.add('on');
+    btn.classList.add('active');
+    window.scrollTo({top:document.querySelector('.nav').offsetTop,behavior:'smooth'});
+  });
+});
+function toggleFaq(el){
+  var item=el.parentElement;
+  var wasOpen=item.classList.contains('open');
+  item.classList.toggle('open');
+}
+function filterFaq(cat,btn){
+  document.querySelectorAll('.faq-filter').forEach(function(f){f.classList.remove('on')});
+  btn.classList.add('on');
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    if(cat==='all'){item.style.display='';}
+    else{item.style.display=item.dataset.cat===cat?'':'none';}
+    item.classList.remove('open');
+  });
+}
+</script>
+</body>
+</html>
